@@ -1,0 +1,52 @@
+# This recipe is a modified version of conda-forge/trilinos to install a specific version of trilinos
+# (https://github.com/conda-forge/trilinos-feedstock/tree/main/recipe)
+
+package:
+  name: trilinos
+  version: 12.12.1
+
+source:
+  git_url: https://github.com/trilinos/Trilinos.git
+  git_rev: trilinos-release-12-12-1
+  patches:
+    - patches/print.patch
+    - patches/except.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake >=3.10.0
+    - gcc_linux-64
+    - gxx_linux-64
+    - gfortran_linux-64
+    - mpich
+    - suitesparse
+    - libblas
+    - liblapack
+  host:
+    - python 3.8
+    - libblas
+    - liblapack
+    - mpich
+    - boost-cpp
+    - scikit-umfpack
+    - netcdf-cxx4
+    - libmatio
+    - xorg-libx11
+    - hdf5 * mpi_mpich_*
+  run:
+    - python 3.8
+    - mpich
+    - boost-cpp
+    - scikit-umfpack
+    - suitesparse
+
+about:
+  home: https://trilinos.org
+  summary: "Sandia's suite of HPC solvers and enabling technologies"
+  description: |
+    Fast, compiled object-oriented algorithms and enabling
+    technologies that support the solution of large-scale,
+    complex multi-physics engineering and scientific problems.

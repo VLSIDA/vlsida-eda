@@ -1,0 +1,41 @@
+diff --git a/cmake/tribits/ci_support/checkin-test.py b/cmake/tribits/ci_support/checkin-test.py
+index f9a3926d07b..24c69dec657 100755
+--- a/cmake/tribits/ci_support/checkin-test.py
++++ b/cmake/tribits/ci_support/checkin-test.py
+@@ -1331,7 +1331,7 @@ def loadConfigurationFile(filepath):
+           print("\nSetting the default --src-dir='"+modulePath+"'")
+         configuration.get("defaults").update({"--src-dir" : modulePath})
+         return configuration
+-      except Exception, e:
++      except Exception as e:
+         print(e)
+         raise e
+     finally:
+@@ -1426,12 +1426,12 @@ def main(cmndLineArgs):
+       if debugDump:
+         print("\nConfiguration loaded from configuration file =", configuration)
+       success = runProjectTestsWithCommandLineArgs(cmndLineArgs, configuration)
+-    except SystemExit, e:
++    except SystemExit as e:
+       # In Python 2.6, SystemExit inherits Exception, but for proper exit
+       # behavior the SystemExit exception must propagate all the way to the top
+       # of the call stack. It cannot get handled by the catch Exception below.
+       raise e
+-    except Exception, e:
++    except Exception as e:
+       success = False
+       traceback.print_exc(file=teeOutput)
+   finally:
+diff --git a/cmake/tribits/dashboard_driver/tdd_driver.py b/cmake/tribits/dashboard_driver/tdd_driver.py
+index a3847d39116..6b97e8273ec 100755
+--- a/cmake/tribits/dashboard_driver/tdd_driver.py
++++ b/cmake/tribits/dashboard_driver/tdd_driver.py
+@@ -136,7 +136,7 @@ def install_ctest(tddDashboardRootDir, tribitsDir):
+         timeCmnd = True,
+         workingDir = dashboardToolsDir \
+         )
+-    except Exception, e:
++    except Exception as e:
+       print("WARNING! The following command failed!\n"+cmnd)
+       print("However, not updating CMake is not the end of the world!")
+ 

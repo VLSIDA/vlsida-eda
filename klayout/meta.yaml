@@ -1,0 +1,50 @@
+# This recipe is a modified version of conda-eda/klayout to install a specific version of klayout
+# (https://github.com/hdl/conda-eda/tree/master/misc/klayout)
+
+package:
+  name: klayout
+  version: 0.27.4
+
+source:
+  git_url: https://github.com/KLayout/klayout.git
+  git_rev: ea1bf40a1ee1c1c934e47a0020417503ab3d7e7e
+  patches:
+    - patches/force-python-dynamic-link.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - make
+    - {{ compiler('cxx') }}
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libselinux') }}  # [linux]
+    - {{ cdt('libxdamage') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
+    - {{ cdt('libxext') }}     # [linux]
+    - {{ cdt('libxfixes') }}  # [linux]
+    - {{ cdt('libxau') }}  # [linux]
+    - {{ cdt('libxcb') }}  # [linux]
+    - {{ cdt('expat') }}  # [linux]
+    - {{ cdt('libpng') }}  # [linux]
+  host:
+    - python
+    - ruby
+    - qt
+    - zlib
+  run:
+    - python
+    - ruby
+    - qt
+    - zlib
+
+about:
+  home: https://www.klayout.de/
+  summary: "Your Mask Layout Friend"
+  description: |
+    - View: Fast and accurate viewing of huge layout files
+    - Edit: Draw, modify and transform hierarchical layout
+    - Generate: Script layout generators, PCells and layout transformation tools
+    - Analyze: Search, verify, and measure layout and code analysis scripts

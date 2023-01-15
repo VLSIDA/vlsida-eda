@@ -1,0 +1,55 @@
+# This recipe is a modified version of conda-forge/ngspice to install a specific version of ngspice
+# (https://github.com/conda-forge/ngspice-feedstock/tree/main/recipe)
+
+package:
+  name: ngspice
+  version: 26
+
+source:
+  git_url: git://git.code.sf.net/p/ngspice/ngspice
+  git_rev: 032b1c32c4dbad45ff132bcfac1dbecadbd8abb0
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
+    - autoconf
+    - automake
+    - libtool
+    - texinfo
+    - bison
+    - flex
+    - ncurses
+
+  host:
+    - ncurses
+    - readline
+    - xorg-libx11
+    - xorg-libxaw
+    - xorg-libxt
+  
+  run:
+    - ncurses
+    - readline
+    - xorg-libx11
+    - xorg-libxaw
+    - xorg-libxt
+
+about:
+  home: http://ngspice.sourceforge.net
+  summary: "The open source spice simulator for electric and electronic circuits"
+  description: |
+    ngspice is the open source spice simulator for electric and electronic circuits.
+    Such a circuit may comprise of JFETs, bipolar and MOS transistors, passive elements
+    like R, L, or C, diodes, transmission lines and other devices, all interconnected
+    in a netlist. Digital circuits are simulated as well, event driven and fast, from
+    single gates to complex circuits. And you may enter the combination of both analog
+    and digital as a mixed-signal circuit.
+    ngspice offers a wealth of device models for active, passive, analog, and digital
+    elements. Model parameters are provided by the semiconductor manufacturers.
+    The user add her circuits as a netlist, and the output is one or more graphs of
+    currents, voltages and other electrical quantities or is saved in a data file.
