@@ -13,5 +13,4 @@ make V=1 install
 cd ${SRC_DIR}/bin-release
 cp -a klayout strm* ${PREFIX}/bin/
 cp -a *.so* ${PREFIX}/lib/
-mkdir -p ${PREFIX}/lib/klayout/
-cp -ar pymod *_plugins ${PREFIX}/lib/klayout/
+cp -ar pymod *_plugins ${PREFIX}/lib/
