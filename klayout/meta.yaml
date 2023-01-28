@@ -3,16 +3,16 @@
 
 package:
   name: klayout
-  version: 0.27.4
+  version: 0.28.3
 
 source:
   git_url: https://github.com/KLayout/klayout.git
-  git_rev: ea1bf40a1ee1c1c934e47a0020417503ab3d7e7e
+  git_rev: 33af2b8fcc7c734330f82ace8a399ec464dc797c
   patches:
     - patches/force-python-dynamic-link.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
