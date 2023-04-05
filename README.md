@@ -1,5 +1,5 @@
 # VLSIDA-EDA
-Conda recipes for VLSIDA projects.
+Conda recipes for VLSIDA projects. Our Anaconda repo is [here](https://anaconda.org/vlsida-eda).
 
 
 ## Installing conda
