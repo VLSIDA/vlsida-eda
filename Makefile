@@ -8,11 +8,11 @@ build_%:
 	@mkdir -p builds/$*
 	@cp -f ${CONDA_BASE}/conda-bld/linux-64/$** builds/$*/
 
-# Instal a tools using cached build
+# Install a tool using its local build
 install_%:
 	@conda install -y -c local $*
 
-# Install a tool from its local build
+# Build and install the tool
 $(TOOLS):
 	@$(MAKE) build_$@
 	@$(MAKE) install_$@
@@ -26,6 +26,4 @@ all: $(TOOLS)
 .PHONY: all
 
 clean:
-	@conda deactivate || true
-	@rm -rf ${CONDA_BASE}
 	@rm -rf builds
