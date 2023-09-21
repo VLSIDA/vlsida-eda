@@ -3,11 +3,11 @@
 
 package:
   name: magic
-  version: 8.3.363
+  version: 8.3.431
 
 source:
    git_url: git://opencircuitdesign.com/magic
-   git_rev: 8.3.363
+   git_rev: 8.3.431
 
 build:
   number: 0
