@@ -7,7 +7,7 @@ source:
   git_rev: b7bb12d81f11d8b50141262537299b09d64b5565
 
 build:
-  number: 0
+  number: 3
 
 requirements:
   build:
@@ -31,6 +31,7 @@ requirements:
     - mpich
     - boost-cpp
     - hdf5 * mpi_mpich_*
+    - fftw
     - trilinos
   run:
     - mpich
@@ -38,6 +39,7 @@ requirements:
     - suitesparse
     - libblas
     - liblapack
+    - fftw
     - trilinos
 
 about:
