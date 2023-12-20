@@ -21,3 +21,5 @@ conda config --add channels conda-forge
 conda config --add channels local
 conda install -y anaconda-client
 conda install -y conda-build
+
+rm ${CONDA_INSTALLER_FILE}
